@@ -133,6 +133,11 @@ module.exports = {
                 },
             ],
         },
+        e2e: {
+            when: 'isNotTest',
+            type: 'confirm',
+            message: '是否安装e2e测试以及Nightwatch?',
+        },
         autoInstall: {
             when: 'isNotTest',
             type: 'list',

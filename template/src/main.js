@@ -4,6 +4,7 @@
 {{/if_eq}}
 import Vue from 'vue'
 import App from './App'
+import _ from 'lodash'
 {{#router}}
 import router from './router'
 {{/router}}
@@ -13,6 +14,7 @@ import store from  './store/store'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 Vue.use(Vuex){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/vuex}}
 
+Vue.prototype._ = _
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
