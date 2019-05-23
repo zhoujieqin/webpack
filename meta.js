@@ -37,24 +37,24 @@ module.exports = {
       when: 'isNotTest',
       type: 'string',
       required: true,
-      message: 'Project name',
+      message: '项目名',
     },
     description: {
       when: 'isNotTest',
       type: 'string',
       required: false,
-      message: 'Project description',
+      message: '项目描述',
       default: 'A Vue.js project',
     },
     author: {
       when: 'isNotTest',
       type: 'string',
-      message: 'Author',
+      message: '作者',
     },
     build: {
       when: 'isNotTest',
       type: 'list',
-      message: 'Vue build',
+      message: '构建工具',
       choices: [
         {
           name: 'Runtime + Compiler: recommended for most users',
@@ -72,17 +72,22 @@ module.exports = {
     router: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Install vue-router?',
+      message: '是否安装vue-router?',
+    },
+    vuex: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: '是否安装vuex?'
     },
     lint: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Use ESLint to lint your code?',
+      message: '是否开启ESLint?',
     },
     lintConfig: {
       when: 'isNotTest && lint',
       type: 'list',
-      message: 'Pick an ESLint preset',
+      message: '选择一个ESLint的预置',
       choices: [
         {
           name: 'Standard (https://github.com/standard/standard)',
@@ -104,12 +109,12 @@ module.exports = {
     unit: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Set up unit tests',
+      message: '是否安装unit tests',
     },
     runner: {
       when: 'isNotTest && unit',
       type: 'list',
-      message: 'Pick a test runner',
+      message: '选择一个测试运行器',
       choices: [
         {
           name: 'Jest',
@@ -128,16 +133,11 @@ module.exports = {
         },
       ],
     },
-    e2e: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Setup e2e tests with Nightwatch?',
-    },
     autoInstall: {
       when: 'isNotTest',
       type: 'list',
       message:
-        'Should we run `npm install` for you after the project has been created? (recommended)',
+        '需要在项目创建后为您运行npm install吗?(推荐)',
       choices: [
         {
           name: 'Yes, use NPM',
@@ -168,6 +168,7 @@ module.exports = {
     'test/unit/karma.conf.js': "unit && runner === 'karma'",
     'test/unit/specs/index.js': "unit && runner === 'karma'",
     'test/unit/setup.js': "unit && runner === 'jest'",
+    'src/store/**/*': "vuex",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
   },
